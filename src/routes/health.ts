@@ -11,7 +11,7 @@ router.post("/", (_req, res) => {
 });
 
 router.post("/startup", async (_req, res) => {
-  const logChannel = await container.client.channels.fetch("1485789997733908602");
+  const logChannel = await container.client.channels.fetch(process.env.LOG_CHANNEL!);
   if (!logChannel || !(logChannel instanceof TextChannel)) return;
 
   logChannel.send({ content: "✅ **Server has started**" });
@@ -22,7 +22,7 @@ router.post("/startup", async (_req, res) => {
 });
 
 router.post("/shutdown", async (_req, res) => {
-  const logChannel = await container.client.channels.fetch("1485789997733908602");
+  const logChannel = await container.client.channels.fetch(process.env.LOG_CHANNEL!);
   if (!logChannel || !(logChannel instanceof TextChannel)) return;
 
   message?.delete().catch(() => {});

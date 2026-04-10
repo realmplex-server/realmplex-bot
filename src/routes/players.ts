@@ -28,7 +28,7 @@ router.put("/:username", async (req, res) => {
   const username = req.params.username;
 
   list.push(username);
-  const logChannel = await container.client.channels.fetch("1485789997733908602");
+  const logChannel = await container.client.channels.fetch(process.env.LOG_CHANNEL!);
   if (!logChannel || !(logChannel instanceof TextChannel)) return;
 
   playerUpdateMessage(username, logChannel, Actions.Join);
@@ -43,7 +43,7 @@ router.delete("/:username", async (req, res) => {
   const username = req.params.username;
 
   list.splice(list.indexOf(username), 1);
-  const logChannel = await container.client.channels.fetch("1485789997733908602");
+  const logChannel = await container.client.channels.fetch(process.env.LOG_CHANNEL!);
   if (!logChannel || !(logChannel instanceof TextChannel)) return;
 
   playerUpdateMessage(username, logChannel, Actions.Leave);
