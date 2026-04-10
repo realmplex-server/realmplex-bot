@@ -8,19 +8,17 @@ export class PingCommand extends Command {
   }
 
   public override registerApplicationCommands(registry: Command.Registry) {
-    registry.registerChatInputCommand((builder) =>
+    (registry.registerChatInputCommand((builder) =>
       builder //
         .setName("ping")
-        .setDescription("Ping bot to see if it is alive")
+        .setDescription("Ping bot to see if it is alive"),
     ),
       {
         idHints: ["1489487397027840101"],
-      };
+      });
   }
 
-  public override async chatInputRun(
-    interaction: Command.ChatInputCommandInteraction
-  ) {
+  public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
     const callbackResponse = await interaction.reply({
       content: `Ping?`,
       withResponse: true,
@@ -31,9 +29,7 @@ export class PingCommand extends Command {
     if (msg && isMessageInstance(msg)) {
       const diff = msg.createdTimestamp - interaction.createdTimestamp;
       const ping = Math.round(this.container.client.ws.ping);
-      return interaction.editReply(
-        `Pong 🏓! (Round trip took: ${diff}ms. Heartbeat: ${ping}ms.)`
-      );
+      return interaction.editReply(`Pong 🏓! (Round trip took: ${diff}ms. Heartbeat: ${ping}ms.)`);
     }
 
     return interaction.editReply("Failed to retrieve ping :(");

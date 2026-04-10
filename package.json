@@ -13,11 +13,12 @@
     "@sapphire/framework": "^5.5.0",
     "discord-api-types": "0.37.120",
     "discord.js": "14.x",
-    "dotenv": "^17.3.1"
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "@sapphire/cli": "^1.9.3",
     "@sapphire/ts-config": "^5.0.3",
+    "@types/express": "^5.0.6",
     "decorators": "link:@sapphire/ts-config/decorators",
     "eslint": "^10.2.0",
     "extra-strict": "link:@sapphire/ts-config/extra-strict",
