@@ -33,7 +33,7 @@ router.put("/:username", async (req, res) => {
 
   playerUpdateMessage(username, logChannel, Actions.Join);
 
-  if (message) message.delete();
+  if (message) message.delete().catch(() => {});
   message = await playerListMessage(list, logChannel);
 
   res.send();
@@ -48,7 +48,7 @@ router.delete("/:username", async (req, res) => {
 
   playerUpdateMessage(username, logChannel, Actions.Leave);
 
-  if (message) message.delete();
+  if (message) message.delete().catch(() => {});
   message = await playerListMessage(list, logChannel);
 
   res.send();
