@@ -11,5 +11,5 @@ const client = new SapphireClient({
 
 client.login(process.env.DISCORD_TOKEN);
 app.listen(process.env.API_PORT, () => {
-  client.logger.info("Server is listening on port 3000");
+  client.logger.info(`Server is listening on port ${process.env.API_PORT}`);
 });
