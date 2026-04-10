@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { LogLevel, SapphireClient } from "@sapphire/framework";
 import { GatewayIntentBits } from "discord.js";
 import app from "./routes/index";
